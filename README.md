@@ -1,1 +1,1 @@
-# burkinafaso-geojson
+# Burkina Faso 🇧🇫 Geojson
