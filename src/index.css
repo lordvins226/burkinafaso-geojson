@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-burkina-green: #009639;
+  --color-burkina-red: #EF2B2D;
+  --color-burkina-yellow: #FCD116;
+}
+
+.custom-tooltip {
+  background-color: rgba(0, 150, 57, 0.95) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  pointer-events: none !important;
+  max-width: 200px !important;
+  word-wrap: break-word !important;
+}
+
+.custom-tooltip::before {
+  border-top-color: rgba(0, 150, 57, 0.95) !important;
+}
+
+@media (max-width: 768px) {
+  .custom-tooltip {
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    max-width: 150px !important;
+  }
+}
