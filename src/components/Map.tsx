@@ -178,7 +178,7 @@ const Map = ({ selectedLayer, onFeatureClick, selectedFeature }: MapProps) => {
         center={[12.2383, -1.5616]}
         zoom={selectedLayer === 'communes' ? 7.5 : 6.5}
         className="w-full h-full"
-        zoomControl={true}
+        zoomControl={false}
         scrollWheelZoom={true}
         doubleClickZoom={true}
         touchZoom={true}
