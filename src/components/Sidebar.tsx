@@ -9,9 +9,10 @@ interface SidebarProps {
   selectedFeature: BurkinaFeature | null;
   isOpen?: boolean;
   onClose?: () => void;
+  onOpen?: () => void;
 }
 
-const Sidebar = ({ selectedLayer, onFeatureSelect, selectedFeature, isOpen: externalIsOpen, onClose }: SidebarProps) => {
+const Sidebar = ({ selectedLayer, onFeatureSelect, selectedFeature, isOpen: externalIsOpen, onClose, onOpen }: SidebarProps) => {
   const [geoData, setGeoData] = useState<BurkinaFeatureCollection | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
@@ -92,8 +93,14 @@ const Sidebar = ({ selectedLayer, onFeatureSelect, selectedFeature, isOpen: exte
   if (!isOpen) {
     return (
       <button
-        onClick={handleOpen}
-        className="fixed left-0 top-1/2 -translate-y-1/2 z-[1000] bg-white shadow-xl rounded-r-xl p-3 hover:bg-gray-50 transition-all hover:pl-4 group md:block hidden"
+        onClick={() => {
+          if (onOpen) {
+            onOpen();
+          } else {
+            handleOpen();
+          }
+        }}
+        className="fixed left-0 top-1/2 -translate-y-1/2 z-[1000] bg-white shadow-xl rounded-r-xl p-3 hover:bg-gray-50 transition-all hover:pl-4 group hidden md:block"
       >
         <svg className="w-5 h-5 text-gray-600 group-hover:text-burkina-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
